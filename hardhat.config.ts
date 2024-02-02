@@ -4,7 +4,7 @@ import "@nomicfoundation/hardhat-toolbox-viem";
 require("@nomicfoundation/hardhat-toolbox");
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.19",
+  solidity: "0.8.20",
 };
 
 export default config;
