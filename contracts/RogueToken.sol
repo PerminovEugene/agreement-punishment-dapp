@@ -27,24 +27,22 @@ contract RogueToken is Ownable {
     }
 
     function _checkOwnerOrAuthorisedContract() internal view {
-      if (owner != msg.sender || authorisedContract != msg.sender) {
+      if (owner() != msg.sender && authorisedContract != msg.sender) {
           revert OwnableUnauthorizedAccount(msg.sender);
       }
     }
 
+    function setAuthorizedContract(address _authorizedContract) public onlyOwner {
+      authorisedContract = _authorizedContract;
+    }
+
     function addTokens(address recipient, uint amount) public onlyOwnerOrAuthorisedContract {
-      require(_balances[recipient] + amount >= _balances[recipient], "Overflow detected");
-        
       if (_balances[recipient] == 0) {
           _balances[recipient] = amount;
       } else {
           _balances[recipient] += amount;
       }
       emit AddTokens(recipient, amount);
-    }
-
-    function setAuthorizedContract(address _authorizedContract) public onlyOwner {
-      authorisedContract = _authorizedContract;
     }
 
     function balanceOf(address account) public view returns (uint256) {
