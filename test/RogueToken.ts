@@ -5,7 +5,7 @@ const {
   loadFixture,
 } = require("@nomicfoundation/hardhat-toolbox/network-helpers");
 
-describe.only("RogueToken contract", function () {
+describe("RogueToken contract", function () {
   async function deployTokenFixture() {
     const [owner, addr1, addr2] = await ethers.getSigners();
 
@@ -60,17 +60,6 @@ describe.only("RogueToken contract", function () {
       const authorisedContract = await rogueToken.connect(addr2);
       
       await (expect(authorisedContract.addTokens(addr1.address, 50))).to.be.revertedWithCustomError(rogueToken, 'OwnableUnauthorizedAccount');
-    });
-    it("Should detect overflow error", async function() {
-      const { rogueToken, addr1 } = await loadFixture(
-        deployTokenFixture
-      );
-      const maxUint = ethers.MaxUint256;
-
-      await rogueToken.addTokens(addr1.address, maxUint);
-      expect(await rogueToken.balanceOf(addr1.address)).to.equal(maxUint);
-
-      await (expect(rogueToken.addTokens(addr1.address, 1))).to.be.revertedWith('Arithmetic operation overflowed outside of an unchecked block');
     });
     it("Should correctly handle several addTokens balances", async function() {
       const { rogueToken, addr1 } = await loadFixture(

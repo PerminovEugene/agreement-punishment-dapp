@@ -11,11 +11,11 @@ contract AgreementManager is Ownable(msg.sender) {
         uint id;
         address participant1;
         address participant2;
-        Status status;
         uint punishment;
+        Status status;
     }
 
-    Agreement[] public agreements;
+    Agreement[] private agreements;
 
     event AgreementCreated(
       uint id,
@@ -37,8 +37,8 @@ contract AgreementManager is Ownable(msg.sender) {
     );
 
     error InvalidAgreementId(uint id);
+    error InvalidAgreementParticipants();
     error AgreementIsNotOpen(uint id);
-
 
     /**
      * A function to create agreement between 2 addreses.
@@ -48,6 +48,9 @@ contract AgreementManager is Ownable(msg.sender) {
       address participant2,
       uint256 punishAmount
     )  onlyOwner external {
+      if (participant1 == participant2) {
+        revert InvalidAgreementParticipants();
+      }
       Agreement memory newAgreement = Agreement({
         id: agreements.length + 1,
         participant1: participant1,
@@ -60,7 +63,9 @@ contract AgreementManager is Ownable(msg.sender) {
     }
 
     function getAgreement(uint id) public view returns (Agreement memory) {
-        require(id - 1 <= agreements.length, "InvalidAgreementId");
+        if (id > agreements.length) {
+          revert InvalidAgreementId(id);
+        }
         return agreements[id - 1];
     }
     function isAgreementOpen(Agreement memory agreement) private pure {
