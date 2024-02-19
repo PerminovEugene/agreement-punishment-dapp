@@ -17,6 +17,7 @@ test:
 
 1. Deploy to test net
 2. Select L2 solution and us it
+3. eslint pretttier and analog for solidity
 
 ### Refactoring: 
 
