@@ -4,7 +4,7 @@ import { deployContract } from './utils';
 import { loadFixture } from '@nomicfoundation/hardhat-toolbox/network-helpers';
 import { Contract } from 'ethers';
 
-describe.only('AgreementManager contract', function () {
+describe('AgreementManager contract', function () {
   async function deploy() {
     return deployContract('AgreementManager');
   }

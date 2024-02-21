@@ -4,6 +4,8 @@ import "@nomicfoundation/hardhat-toolbox-viem";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-ethers";
 
+import 'solidity-coverage'
+
 const config: HardhatUserConfig = {
   solidity: "0.8.20",
 };

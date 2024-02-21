@@ -7,9 +7,9 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "rootDirs": ["./src", "./scripts", "./test"],
+    "rootDirs": ["./test", "./scripts"],
   },
-  "include": ["./test", "./src", "./scripts"],
+  "include": ["./test", "./scripts"],
   "files": ["./hardhat.config.ts"],
   "exclude": ["dist", "node_modules"],
 }

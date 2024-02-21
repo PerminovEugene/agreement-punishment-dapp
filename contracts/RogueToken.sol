@@ -33,15 +33,15 @@ contract RogueToken is Ownable {
     authorisedContract = _authorizedContract;
   }
 
+  function getAuthorizedContract() public view returns (address) {
+    return authorisedContract;
+  }
+
   function addTokens(
     address recipient,
     uint amount
   ) public onlyOwnerOrAuthorisedContract {
-    if (_balances[recipient] == 0) {
-      _balances[recipient] = amount;
-    } else {
-      _balances[recipient] += amount;
-    }
+    _balances[recipient] += amount;
     emit AddTokens(recipient, amount);
   }
 

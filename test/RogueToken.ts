@@ -23,7 +23,7 @@ describe('RogueToken contract', function () {
     it('Should set authorisedContract by owner', async function () {
       const { rogueToken, addr1 } = await loadFixture(deployTokenFixture);
       await rogueToken.setAuthorizedContract(addr1);
-      expect(await rogueToken.authorisedContract()).to.equal(addr1);
+      expect(await rogueToken.getAuthorizedContract()).to.equal(addr1);
     });
 
     it('Should not set authorisedContract by not owner', async function () {

@@ -1,4 +1,6 @@
-# coin
+# Agreement-Punishment dapp
+
+dApp allows to create agreement between to addresses and add punishment token agreement violator address.
 
 ## Setup:
 
@@ -15,11 +17,11 @@ test:
 
 ### Setup
 
+0. Add ui
 1. Deploy to test net
 2. Select L2 solution and us it
-3. eslint pretttier and analog for solidity
 
 ### Refactoring: 
 
-1. generate enums by solidity and use generated data in tests
+1. use contracts typings
 2. BigInt
