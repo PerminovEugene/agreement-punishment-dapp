@@ -1,6 +1,6 @@
 # Agreement-Punishment dapp
 
-dApp allows to create agreement between to addresses and add punishment token agreement violator address.
+dApp allows to create agreement between two addresses and add punishment token agreement violator address.
 
 ## Setup:
 
