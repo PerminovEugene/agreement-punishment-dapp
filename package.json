@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "prettier-solidity": "prettier --write --config .prettierrc --plugin=prettier-plugin-solidity 'contracts/**/*.sol'",
-    "prettier-ts": "prettier --write --config .prettierrc 'test/**/*.ts'",
+    "prettier-ts": "prettier --write --config .prettierrc 'test/**/*.ts' 'scripts/**/*.ts'",
     "prettier": "npm run prettier-solidity &&npm run prettier-ts",
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
-    "launch": "npx hardhat node"
+    "run-local-node": "npx hardhat node",
+    "deploy-dev": "node --env-file=.env node_modules/.bin/hardhat run scripts/deploy.local.ts"
   },
   "node": {
     "version": "20.11.0"

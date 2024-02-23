@@ -4,20 +4,33 @@ dApp allows to create agreement between two addresses and add punishment token a
 
 ## Setup:
 
-install:
+0. Install and use Node.js version 20.11.0.
+
+1. install modules:
 `npm i`
 
-compile:
-`npx hardhat compile`
+2. compile:
+`npm run compile`
 
-test: 
-`npx hardhat test`
+3. run local node
+`npm run run-local-node`
+
+4. In separated terminal run deploy script
+`npm run deploy-dev`
+
+## tests
+
+1. For running TS contracts tests run:
+`npm run test`
 
 ## TODO
 
 ### Setup
 
+-1. Setup monorepo
 0. Add ui
+1. Update Agreement contract
+2. Add hybrid backend part 
 1. Deploy to test net
 2. Select L2 solution and us it
 
