@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  etherium-node:
+    build:
+      context: ./packages/etherium
+      dockerfile: ./Node.Dockerfile
+    volumes:
+      - .:/app
+  etherium-dapp:
+    build:
+      context: ./packages/etherium
+      dockerfile: ./Dockerfile
+    depends_on:
+      - etherium-node
+    volumes:
+      - .:/app
